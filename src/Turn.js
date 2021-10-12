@@ -5,11 +5,11 @@ class Turn {
   }
 
   returnGuess() {
-
+    return this.userGuess;
   }
 
   returnCard() {
-
+    return this.card;
   }
 
   evaluateGuess() {
@@ -20,5 +20,6 @@ class Turn {
 
   }
 }
+
 
 module.exports = Turn;
