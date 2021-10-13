@@ -7,14 +7,18 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
 describe('Round', function() {
-  let card1, card2, card3, deck, round;
+  let card1; 
+  let card2;
+  let card3; 
+  let deck;
+  let round;
 
   beforeEach(function() {
     card1 = new Card (
       1, 
       'What is Robbie\'s favorite animal', 
       ['sea otter', 'pug', 'capybara'], 
-      'sea otters'
+      'sea otter'
       );
       
     card2 = new Card (
@@ -39,7 +43,32 @@ describe('Round', function() {
       expect(Round).to.be.a('function');
     });
         
-    it('the current card should be the first card', function() {
-      expect(round.returnCurrentCard()).to.equal(card1);
+    it('the current card should agree to the current turn', function() {
+      round.takeTurn('pug', card1);
+
+      expect(round.returnCurrentCard()).to.equal(card2);
     });
+
+    it('should provide user with feedback for correct answers', function() {
+      expect(round.takeTurn('gallbladder', card2)).to.equal('correct!');
+    })
+
+    it('should provide user with feedback for incorrect answers', function() {
+      expect(round.takeTurn('William', card3)).to.equal('incorrect!');
+    })
+
+    it('should tell you what percent of questions were answered correctly', function() {
+      round.takeTurn('pug', card1);
+      round.takeTurn('gallbladder', card2);
+      round.takeTurn('Lex', card3);
+      expect(round.calculatePercentCorrect()).to.equal(33);
+    })
+      
+    it('should tell the user what % of the questions were answered correctly', function() {
+      round.takeTurn('pug', card1);
+      round.takeTurn('gallbladder', card2);
+      round.takeTurn('Lex', card3);
+      
+      expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+    })
   })
