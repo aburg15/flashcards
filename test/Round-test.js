@@ -57,13 +57,27 @@ describe('Round', function() {
       expect(round.takeTurn('William', card3)).to.equal('incorrect!');
     })
 
+    it('should track the amount of inccorect guesses', function() {
+      round.takeTurn('pug', card1);
+      round.takeTurn('gallbladder', card2);
+      round.takeTurn('Lex', card3);
+      expect(round.incorrectGuesses.length).to.equal(2);
+    })
+
     it('should tell you what percent of questions were answered correctly', function() {
       round.takeTurn('pug', card1);
       round.takeTurn('gallbladder', card2);
       round.takeTurn('Lex', card3);
       expect(round.calculatePercentCorrect()).to.equal(33);
     })
-      
+
+    it('should be ablet to track the number of turns', function() {
+      round.takeTurn('pug', card1);
+      round.takeTurn('gallbladder', card2);
+      expect(round.turns).to.equal(2);
+    })
+
+    
     it('should tell the user what % of the questions were answered correctly', function() {
       round.takeTurn('pug', card1);
       round.takeTurn('gallbladder', card2);
@@ -71,4 +85,5 @@ describe('Round', function() {
       
       expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
     })
+    
   })
