@@ -8,14 +8,13 @@ describe('Turn', function() {
 
   it('should be a function', function() {
     const turn = new Turn();
-    
     expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
-  })  ;
+  });
 
   it('should store a user guess', function() {
     const turn = new Turn('pug');
@@ -35,7 +34,6 @@ describe('Turn', function() {
       'sea otter'
     )
     const turn = new Turn('pug', card);
-
     expect(turn.returnCard()).to.equal(card);
   })
   
@@ -47,7 +45,6 @@ describe('Turn', function() {
       'sea otter'
     )
     const turn = new Turn('pug', card);
-
     expect(turn.evaluateGuess()).to.equal(false)
   })
 
@@ -59,8 +56,9 @@ describe('Turn', function() {
       'sea otter'
     )
     const turn = new Turn('pug', card);
-  
     expect(turn.giveFeedback()).to.equal('incorrect!')
   })
+
+  it
 
 })

@@ -8,7 +8,6 @@ describe('Deck', function() {
 
   it('should be a function', function() {
     const deck = new Deck();
-
     expect(Deck).to.be.a('function');
   })
 
@@ -35,7 +34,6 @@ describe('Deck', function() {
     )
       
     const deck = new Deck([card1, card2, card3]);
-
-    expect(deck.countCards()).to.equal(3)
+    expect(deck.countCards()).to.equal(3);
   })
 })
