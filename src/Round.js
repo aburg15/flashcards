@@ -5,19 +5,23 @@ class Round {
     this.deck = deck.cards;
     this.turns = turns;
     this.incorrectGuesses = incorrectGuesses;
+    this.card;
   }
 
   returnCurrentCard() {
-    return this.deck[this.turns];
+    this.card = this.deck[this.turns];
+    return this.card;
   }
 
-  takeTurn(userGuess, card) {
-    const newTurn = new Turn(userGuess, card)
+  takeTurn(userGuess) {
+    const newTurn = new Turn(userGuess, this.card) 
+    
     this.turns += 1;
     if (!newTurn.evaluateGuess()) {
       this.incorrectGuesses.push(newTurn.card.id)
     }
-    return newTurn.giveFeedback()
+    this.returnCurrentCard();
+    return newTurn.giveFeedback();
   }
 
   calculatePercentCorrect() {
@@ -25,6 +29,7 @@ class Round {
   }
 
   endRound() {
+    // console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }

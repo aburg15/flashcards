@@ -50,14 +50,14 @@ describe('Round', function() {
     });
 
     it('should provide user with feedback for correct answers', function() {
-      expect(round.takeTurn('gallbladder', card2)).to.equal('correct!');
+      expect(round.takeTurn('gallbladder')).to.equal('correct!');
     })
 
     it('should provide user with feedback for incorrect answers', function() {
       expect(round.takeTurn('William', card3)).to.equal('incorrect!');
     })
 
-    it('should track the amount of inccorect guesses', function() {
+    it('should track the amount of incorrect guesses', function() {
       round.takeTurn('pug', card1);
       round.takeTurn('gallbladder', card2);
       round.takeTurn('Lex', card3);
