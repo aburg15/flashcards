@@ -8,6 +8,7 @@ const Round = require('../src/Round');
 class Game {
   constructor() {
     this.cards;
+    this.currentRound = 0;
   }
 
   start() {
@@ -16,25 +17,20 @@ class Game {
       return newCard
     })
     let deck = new Deck(this.cards);
-    let round = new Round(deck);
-    // console.log(round)
-
+    this.currentRound = new Round(deck);
+   
     this.printMessage(deck);
-    this.printQuestion(round);
+    this.printQuestion(this.currentRound);
   
   }
 
-  currentRound() {
-
-  }
-
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 

@@ -5,19 +5,14 @@ class Round {
     this.deck = deck.cards;
     this.turns = turns;
     this.incorrectGuesses = incorrectGuesses;
-    // this.card;
   }
 
   returnCurrentCard() {
-    // this.card = this.deck[this.turns];
-    // return this.card;
     return this.deck[this.turns]
   }
 
   takeTurn(userGuess) {
-    // console.log(`a`, this.deck[0].correctAnswer)
-    // console.log(`b`, userGuess)
-    const newTurn = new Turn(userGuess, this.deck[this.turns]) //deleted this.card as parameter 
+    const newTurn = new Turn(userGuess, this.deck[this.turns]) 
     this.turns += 1;
     if (!newTurn.evaluateGuess()) {
       this.incorrectGuesses.push(newTurn.card.id)
@@ -32,7 +27,7 @@ class Round {
 
   endRound() {
     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-    // return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 
