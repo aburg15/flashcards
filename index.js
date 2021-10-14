@@ -9,5 +9,3 @@ console.log('Node server running on port 3000');
 
 let game = new Game();
 game.start();
-
-

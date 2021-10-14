@@ -15,9 +15,9 @@ class Game {
       const newCard = new Card(data.id, data.question, data.answers, data.correctAnswer)
       return newCard
     })
-
     let deck = new Deck(this.cards);
     let round = new Round(deck);
+    // console.log(round)
 
     this.printMessage(deck);
     this.printQuestion(round);

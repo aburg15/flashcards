@@ -7,7 +7,7 @@ describe('Game', function() {
 
   it('should be a function', function() {
     const game = new Game();
-    game.start()
+    // game.start()
     // console.log(game)
     expect(Game).to.be.a('function');
   });

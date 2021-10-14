@@ -54,7 +54,7 @@ describe('Round', function() {
     })
 
     it('should provide user with feedback for incorrect answers', function() {
-      expect(round.takeTurn('William', card3)).to.equal('incorrect!');
+      expect(round.takeTurn('William')).to.equal('incorrect!');
     })
 
     it('should track the amount of incorrect guesses', function() {
