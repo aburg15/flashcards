@@ -5,7 +5,7 @@ Flash Cards is a command-line based application that allows users to test their 
 
 - Clone the 'Flash Cards' repository.
 - CD into the root directory.
-- Run `index node.js` from the command line.
+- Run `node index.js` from the command line.
 
 ## Preview:
 
